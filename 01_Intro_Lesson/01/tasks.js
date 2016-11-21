@@ -63,33 +63,33 @@
 
 }
 
+
 /*
- * #3
- * Получить из данного массива заказов
- * среднюю сумму заказа
+ * #4
+ * Получить из данного массива пользователей
+ * распределение по интересам
+ * EX: { computers: 3, food: 5, math: 1, cats: 3 }
+ * где ключ соответствует названию интреса
+ * а значение - количество людей с таким интересом
 */
 
 {
-    const orders = [{
-        id: 5,
-        date: '21-01-2015',
-        amount: 783
+    const users = [{
+        name: 'Vasya',
+        surname: 'Ivanov',
+        interests: ['computers', 'food']
     }, {
-        id: 8,
-        date: '24-01-2015',
-        amount: 67
+        name: 'Ivan',
+        surname: 'Tretyakov',
+        interests: ['computers', 'food', 'cars']
     }, {
-        id: 21,
-        date: '29-01-2015',
-        amount: 1234
+        name: 'Daryna',
+        surname: 'Petrova',
+        interests: ['cars', 'math']
     }, {
-        id: 78,
-        date: '04-02-2015',
-        amount: 123
-    }, {
-        id: 23,
-        date: '15-02-2015',
-        amount: 245
+        name: 'Petro',
+        surname: 'Nalyvaiko',
+        interests: ['computers', 'food', 'math']
     }];
 
 
