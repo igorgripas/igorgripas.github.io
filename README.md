@@ -24,7 +24,7 @@
 
 ```
 git clone <link here>
-cd react1-homeworks
+cd react2-homeworks
 ```
 
 ### 4. Создайте новую ветку
