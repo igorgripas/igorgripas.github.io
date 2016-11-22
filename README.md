@@ -101,7 +101,7 @@ cd react1-homeworks
 
 ```
 git checkout master
-git pull https://github.com/frontend-science/react1-homeworks.git master
+git pull https://github.com/frontend-science/react2-homeworks.git master
 git push origin master
 ```
 
