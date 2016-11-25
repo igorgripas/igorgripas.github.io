@@ -1,0 +1,22 @@
+.likes {
+    cursor: pointer;
+    color: grey;
+    margin-right: 20px;
+}
+
+.likes:hover {
+    color: red;
+}
+
+.comments{
+    cursor: pointer;
+    color: grey;
+}
+
+.comments:hover {
+    color: green;
+}
+
+.stat-icon {
+    padding-right: 10px;
+}
