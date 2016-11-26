@@ -1,0 +1,72 @@
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.title {
+    font-family: galada;
+    font-size: 32px;
+    color: #4c6dcd;
+}
+
+.person {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 16px;
+    padding: 16px;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+    width: 600px;
+}
+
+.avatar {
+    float: left;
+    width: 60px;
+}
+.avatar img {
+    max-width: 60px;
+    border-radius: 4px;
+}
+
+.info {
+    margin-left: 20px;
+    float: right;
+}
+.name {
+    font-size: 20px;
+    font-weight: bold;
+}
+.location a{
+    display: flex;
+}
+
+.location a span{
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.location .pin-icon{
+    background: url('google-maps-icon-green-md.png') no-repeat;
+    height: 30px;
+    width: 30px;
+}
+
+.socials {
+    margin-top: 8px;
+    font-size: 24px;
+    display: flex;
+}
+
+.socials a {
+    text-decoration: none;
+}
+.social-icon:hover {
+    color: green;
+}
+.social-icon {
+    color: grey;
+    margin-right: 8px;
+}
+
+
