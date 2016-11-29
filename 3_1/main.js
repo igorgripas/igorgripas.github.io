@@ -27,7 +27,9 @@ const Clicker = React.createClass({
       left: '50%',
       borderRadius: '50%',
       background: 'blue',
-      position: 'absolute'
+      position: 'absolute',
+      WebkitTransition: 'width 300ms ease-in-out, height 300ms ease-in-out',
+      transition: 'width 300ms ease-in-out, height 300ms ease-in-out'
     };
 
     return (
