@@ -276,7 +276,7 @@ const Person = React.createClass({
           </div>
           <div className="info">
             <div className="name">{name}</div>
-            {this.createlocationElement(location)}
+            {this.createLocationElement(location)}
             <div className="socials">
               <a className="social-icon fa fa-facebook-official" href={facebook} target="blank"/>
               <a className="social-icon fa fa-github" href={github} target="blank"/>
