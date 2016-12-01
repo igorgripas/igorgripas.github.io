@@ -247,91 +247,91 @@ const STUDENTS = [
 
 const Person = React.createClass({
   render() {
-    const {
-        slack,
-        name,
-        avatar,
-        location,
-        github,
-        facebook,
-        email
-    } = this.props;
+  const {
+      slack,
+      name,
+      avatar,
+      location,
+      github,
+      facebook,
+      email
+      } = this.props;
 
-    const locationElement = location
-        ? (
-        <div className="location">
-          <a href={`http://maps.google.com/?q=${location}`} target="blank">
-            <i className="pin-icon"/>
-            <span>{location}</span>
-          </a>
-        </div>)
-        : null;
+  const locationElement = location
+      ? (
+  <div className="location">
+      <a href={`http://maps.google.com/?q=${location}`} target="blank">
+      <i className="pin-icon"/>
+      <span>{location}</span>
+      </a>
+      </div>)
+: null;
 
-    return (
-        <div className="person">
-          <div className="avatar">
-            <img src={avatar}/>
-          </div>
-          <div className="info">
-            <div className="name">{name}</div>
-            {locationElement}
-            <div className="socials">
-              <a className="social-icon fa fa-facebook-official" href={facebook} target="blank"/>
-              <a className="social-icon fa fa-github" href={github} target="blank"/>
-              <a className="social-icon fa fa-envelope" href={`mailto:${email}`} target="_top"/>
-            </div>
-          </div>
-        </div>
-    );
-  }
+  return (
+      <div className="person">
+      <div className="avatar">
+      <img src={avatar}/>
+      </div>
+      <div className="info">
+      <div className="name">{name}</div>
+      {locationElement}
+      <div className="socials">
+      <a className="social-icon fa fa-facebook-official" href={facebook} target="blank"/>
+      <a className="social-icon fa fa-github" href={github} target="blank"/>
+      <a className="social-icon fa fa-envelope" href={`mailto:${email}`} target="_top"/>
+    </div>
+    </div>
+    </div>
+);
+}
 });
 
 const MyGroup = React.createClass({
   getInitialState() {
-    return {
-      students: STUDENTS,
-      search: ''
-    }
-  },
-
-  handleSearchChange(e) {
-    let searchStr = e.target.value;
-    this.setState({
-      search: searchStr,
-      students: STUDENTS.filter(student => student.name.toLowerCase().includes(searchStr))
-    });
-  },
-
-  render() {
-    const {students} = this.state;
-
-    return (
-        <div>
-          <div className="title">Meet React Course Members</div>
-          <div className="search">
-            Search:
-            <input placeholder="Search" value={this.state.search} onChange={this.handleSearchChange}/>
-          </div>
-
-          {
-            students.map(person =>
-                <Person
-                    key={person.name}
-                    slack={person.slack}
-                    name={person.name}
-                    location={person.location}
-                    avatar={person.avatar}
-                    github={person.github}
-                    facebook={person.facebook}
-                    email={person.email}
-                />)
-          }
-        </div>
-    );
+  return {
+    students: STUDENTS,
+    search: ''
   }
+},
+
+handleSearchChange(e) {
+  const searchStr = e.target.value;
+  this.setState({
+    search: searchStr,
+    students: STUDENTS.filter(student => student.name.toLowerCase().indexOf(searchStr.toLowerCase()) !== -1)
+});
+},
+
+render() {
+  const {students} = this.state;
+
+  return (
+      <div>
+      <div className="title">Meet React Course Members</div>
+  <div className="search">
+      Search:
+<input placeholder="Search" value={this.state.search} onChange={this.handleSearchChange}/>
+</div>
+
+{
+  students.map(person =>
+<Person
+key={person.name}
+slack={person.slack}
+name={person.name}
+location={person.location}
+avatar={person.avatar}
+github={person.github}
+facebook={person.facebook}
+email={person.email}
+/>)
+}
+</div>
+);
+}
 });
 
 ReactDOM.render(
-    <MyGroup />,
+<MyGroup />,
     document.getElementById('root')
 );
