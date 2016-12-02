@@ -246,6 +246,18 @@ const STUDENTS = [
 ];
 
 const Person = React.createClass({
+  createLocationElement(location) {
+    return location
+        ? (
+        <div className="location">
+          <a href={`http://maps.google.com/?q=${location}`} target="blank">
+            <i className="pin-icon"/>
+            <span>{location}</span>
+          </a>
+        </div>)
+        : null;
+  },
+
   render() {
     const {
         slack,
@@ -255,17 +267,7 @@ const Person = React.createClass({
         github,
         facebook,
         email
-    } = this.props;
-
-    const locationElement = location
-        ? (
-        <div className="location">
-          <a href={`http://maps.google.com/?q=${location}`} target="blank">
-            <i className="pin-icon"/>
-            <span>{location}</span>
-          </a>
-        </div>)
-        : null;
+        } = this.props;
 
     return (
         <div className="person">
@@ -274,7 +276,7 @@ const Person = React.createClass({
           </div>
           <div className="info">
             <div className="name">{name}</div>
-            {locationElement}
+            {this.createLocationElement(location)}
             <div className="socials">
               <a className="social-icon fa fa-facebook-official" href={facebook} target="blank"/>
               <a className="social-icon fa fa-github" href={github} target="blank"/>
@@ -297,8 +299,7 @@ const MyGroup = React.createClass({
   handleSearchChange(e) {
     let searchStr = e.target.value;
     this.setState({
-      search: searchStr,
-      students: STUDENTS.filter(student => student.name.toLowerCase().includes(searchStr))
+      students: STUDENTS.filter(student => student.name.toLowerCase().indexOf(searchStr.toLowerCase()) !== -1)
     });
   },
 
@@ -310,7 +311,7 @@ const MyGroup = React.createClass({
           <div className="title">Meet React Course Members</div>
           <div className="search">
             Search:
-            <input placeholder="Search" value={this.state.search} onChange={this.handleSearchChange}/>
+            <input placeholder="Search" onChange={this.handleSearchChange}/>
           </div>
 
           {
@@ -324,7 +325,7 @@ const MyGroup = React.createClass({
                     github={person.github}
                     facebook={person.facebook}
                     email={person.email}
-                />)
+                    />)
           }
         </div>
     );

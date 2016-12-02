@@ -1,6 +1,17 @@
 const MAX_RADIUS = 300;
 const MIN_RADIUS = 5;
 const INCREASE_FACTOR = 1.3;
+
+let CIRCLE_STYLES = {
+  borderRadius: '50%',
+  background: 'blue',
+  position: 'absolute',
+  transition: 'all 0.2s linear',
+  WebkitTransition: 'all 0.2s linear',
+
+};
+
+
 const Clicker = React.createClass({
   getInitialState() {
     return {
@@ -9,28 +20,16 @@ const Clicker = React.createClass({
   },
 
   handleCircleClick() {
-    let radius = this.state.radius * INCREASE_FACTOR;
-    if (radius > MAX_RADIUS) {
-      radius = MIN_RADIUS;
-    }
+    let radius = this.state.radius * INCREASE_FACTOR > MAX_RADIUS ? MIN_RADIUS : this.state.radius * INCREASE_FACTOR;
+
     this.setState({radius});
   },
 
   render() {
     const {radius} = this.state;
-    const circleStyles = {
-      height: 2*radius,
-      width: 2*radius,
-      marginLeft: -radius,
-      marginTop: -radius,
-      top: '50%',
-      left: '50%',
-      borderRadius: '50%',
-      background: 'blue',
-      position: 'absolute',
-      WebkitTransition: 'width 300ms ease-in-out, height 300ms ease-in-out',
-      transition: 'width 300ms ease-in-out, height 300ms ease-in-out'
-    };
+    let circleStyles = {...CIRCLE_STYLES};
+    circleStyles.height = 2 * radius;
+    circleStyles.width = 2 * radius;
 
     return (
         <div style={circleStyles} onClick={this.handleCircleClick}>
