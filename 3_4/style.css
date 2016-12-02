@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-weight: 300;
+    background-color: #eaeaea;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.article {
+    width: 90%;
+    height: auto;
+    background-color: rgba(126, 207, 255, 0.06);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 2px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-left: 5%;
+    position: relative;
+}
+
+.article__expand-icon {
+    left:2px;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.articleText.hidden{
+    visibility: hidden;
+    height: 0;
+}
+
+.article:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.article__delete-icon {
+    position: absolute;
+    top:5px;
+    right:5px;
+    display: none;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+
+.article:hover .article__delete-icon {
+    display: block;
+}
+
+.tabContent {
+    overflow: auto;
+    height: 440px;
+    width: 90%;
+    padding: 16px;
+    margin: 0 auto 20px auto;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor__textarea {
+    width: 100%;
+    resize: none;
+    margin: 5px;
+    font-size: 14px;
+    border: none;
+    font-weight: 300;
+}
+
+.editor__textarea:focus {
+    outline: 0;
+}
+
+.editor__button {
+    align-self: flex-end;
+    width: 150px;
+    background-color:#44c767;
+    border-radius:28px;
+    border:1px solid #18ab29;
+    cursor:pointer;
+    color:#ffffff;
+    font-size:14px;
+    padding:8px 8px;
+    text-transform: uppercase;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+}
+
+.editor__button:hover {
+    background-color:#5cbf2a;
+}
+
+.editor__button:active {
+    position:relative;
+    top:1px;
+}
+
+.editor__button:focus {
+    outline: 0;
+}
+
+.list {
+    margin: 0 auto;
+}
+
+.app {
+    max-width: 960px;
+    width: 100%;
+}
+
+.app__header {
+    font-family: 'Galada', cursive;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+    color: black;
+    text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+}
+.title {
+
+}
+
+/* Style the list */
+ul.tab {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 90%;
+    /*max-width: 600px;*/
+    margin: 0 auto;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 2px;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {background-color: #ddd;}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.search {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.article__edit-icon{
+    background: url('pencil_and_paper.png') no-repeat;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top:5px;
+    left:5px;
+    display: none;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+
+.article:hover .article__edit-icon {
+    display: block;
+}
